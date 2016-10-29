@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  get '/bright_ideas'=>'posts#bright_ideas'
+
+  get 'posts/delete'
+
+  post '/posts/create'=>'posts#create'
+  get '/posts/add_like/:id' =>'posts#add_like'
+
+  get '/main' =>'users#main'
+
+  post '/users/login' => 'users#login'
+
+  post '/users/register' => 'users#register'
+
+  get '/users/logout' =>'users#logout'
+  get '/users/:id' =>'users#users_detail'
+  get '/bright_ideas/:id' =>'posts#bright_ideas_detail'
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

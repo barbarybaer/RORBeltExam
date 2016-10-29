@@ -1,0 +1,31 @@
+<% if flash[:errors] %>
+	<% flash[:errors].each do |e|%>
+		<p><%= e %></p>
+	<% end %>
+<% end %>
+<h4>Welcome!</h4>
+<div id="register" style="display:inline-block">
+	<h3>Register</h3>
+	<form action="/users/register" method="POST">
+		<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+		Name: <input id="name" type="text" name="user[name]"><br>
+		Alias: <input id="alias" type="text" name="user[alias]"><br>
+		Email: <input id="Email" type="text" name="user[email]"><br>
+		Password: <input id="password" type="password" name="user[password]"><br>
+		Password Confirmation: <input id="password_confirmation" type="password" name="user[password_confirmation]"><br>
+		
+		<input type="submit" name="register" value="Register"><br>
+	</form>
+	
+</div>
+
+<div style="display:inline-block">
+	<h3>Login</h3>
+	<form action="/users/login" method="POST">
+		<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+		Email: <input id="Email" type="text" name="email"><br>
+		Password: <input id="Password" type="password" name="password"><br>
+	
+		<input type="submit" name="login" value="Login"><br>
+	</form>
+</div>

@@ -1,0 +1,18 @@
+<a href='/users/logout'>Logout</a>
+
+<h3>Hello, <%=@user.alias %></h3>
+
+
+<form action="/posts/create" method="POST">
+	<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+	<input id="post_content" type="text" name="post[content]" placeholder="Post something witty here...">
+	<input type="submit" name="submit" value="Idea!">
+</form><br><br>
+
+<% @posts.each do |p|%>
+	<a href='/users/<%=p.userid%>'><%=p.alias%></a> says:
+	<p style="overflow-y: scroll;height:50px;width:200px; border:1px solid black;"><%=p.content%></p>
+	<a href="/posts/add_like/<%= p.id%>">Like</a>
+	<a href='/bright_ideas/<%= p.id%>'><%=p.likes %> people </a> like this<br><br>
+<% end %>
+

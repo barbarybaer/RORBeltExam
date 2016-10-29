@@ -1,0 +1,16 @@
+<a href="/bright_ideas">Bright Ideas</a>
+<a href="/users/logout">Logout</a><br><br>
+
+<%= @user[0][:poster]%> says: 
+<p style="overflow-y: scroll;height:50px;width:200px; border:1px solid black;"><%=@user[0][:content]%></p>
+
+People who liked this post:
+<table>
+	<tr><th>Alias</th><th>Name</th></tr>
+	<% @user.each do |u| %>
+    	<tr>
+		<td><a href='/users/<%=u.userid%>'><%=u.alias%></a></td>
+		<td><%=u.name %></td>
+		</tr>
+	<% end %>
+</table>
